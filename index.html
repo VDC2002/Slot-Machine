@@ -34,6 +34,7 @@
     .containerGame {
       width: fit-content;
       display: flex;
+      flex-wrap: wrap;
       border: 2px solid var(--color--border-ContainerGame);
       border-radius: 10px;
       box-shadow: 0 0 18px var(--color-Box-Shadow);
@@ -53,6 +54,15 @@
     }
     .inputScreen {
       flex: 1;
+      border: none;
+    }
+    .inputScreen:last-child {
+      border-left: 1px solid grey;
+      border-radius: 0 10px 10px 0;
+    }
+    .inputScreen:first-child {
+      border-right: 1px solid grey;
+      border-radius: 10px 0 0 10px;
     }
     .inputScreen img {
       width: 100%;
@@ -93,6 +103,22 @@
       cursor: not-allowed;
       box-shadow: none;
     }
+    @media screen and (max-width: 445px) {
+      .containerGame {
+        width: 80%;
+        justify-content: center;
+        padding: 8px;
+        gap: 6px;
+      }
+      .containerScreen {
+        height: 300px;
+        justify-content: center;
+      }
+      .machine {
+        display: flex;
+        height: 150px;
+      }
+    }
   </style>
 
   <body>
@@ -115,10 +141,9 @@
       </div>
       <button class="buttonStart">Play</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-      //Math.floor(Math.random() * 10);
       const urlS = [
         "./image/blueberry-icon.svg",
         "./image/chili-icon.svg",
